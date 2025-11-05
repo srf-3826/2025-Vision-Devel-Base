@@ -47,12 +47,7 @@ public class HolonomicTargetCommand extends Command {
 
   @Override
   public void execute() {
-    double[] results = {SmartDashboard.getNumber("targetposeX", 0),     // [0]
-                        SmartDashboard.getNumber("targetposeY", 0),     // [1]
-                        SmartDashboard.getNumber("targetposeZ", 0),     // [2]
-                        SmartDashboard.getNumber("targetposeRoll", 0),  // [3]
-                        SmartDashboard.getNumber("targetposePitch", 0), // [4]
-                        SmartDashboard.getNumber("targetposeYaw", 0)};  // [5] get most recent pipeline result
+    double[] results = limelightCamera.getVisionData();
     if (results.length > 0) { 
 
       // X - left and right of camera center (in meters)

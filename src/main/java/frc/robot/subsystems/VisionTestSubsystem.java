@@ -30,7 +30,7 @@ public class VisionTestSubsystem extends SubsystemBase{
     } 
     
     
-    public void getVisionData(){
+    public double[] getVisionData(){
 
 
          NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight"); //set getTable() to limelight name NOT pipeline name
@@ -101,7 +101,15 @@ public class VisionTestSubsystem extends SubsystemBase{
         SmartDashboard.putNumber("targetposeYaw", targetposeYaw);
 
         
-        SmartDashboard.putNumberArray("targetpose", targetpose );    
+        SmartDashboard.putNumberArray("targetpose", targetpose );   
+        double[] output =  new double[6];
+        output[0] = targetposeX;
+        output[1] = targetposeY;
+        output[2] = targetposeZ;
+        output[3] = targetposeRoll;
+        output[4] = targetposePitch;
+        output[5] = targetposeYaw;
+        return output;
     }
 
     
